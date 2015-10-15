@@ -1,4 +1,5 @@
 [![BuildStatus](https://travis-ci.org/ljones140/Pet-Dump.svg)](https://travis-ci.org/ljones140/Pet-Dump)
+[![CoverageStatus](https://coveralls.io/repos/ljones140/Pet-Dump/badge.svg?branch=master&service=github)](https://coveralls.io/github/ljones140/Pet-Dump?branch=master)
 #Pet Dump
 
 ##A tool for letting you know when they need to go
