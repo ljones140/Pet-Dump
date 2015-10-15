@@ -1,3 +1,4 @@
+[![BuildStatus](https://travis-ci.org/ljones140/Pet-Dump.svg)](https://travis-ci.org/ljones140/Pet-Dump)
 #Pet Dump
 
 ##A tool for letting you know when they need to go
