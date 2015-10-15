@@ -19,16 +19,6 @@ feature 'user can sign in and out ' do
   context 'user signed in on the homepage' do
     let(:user){ create(:user) }
     
-    before do
-      def sign_in_as(user)
-        visit root_path
-        click_link('Sign in')
-        fill_in('Email', with: user.email)
-        fill_in('Password', with: user.password)
-        click_button('Log in')
-      end
-    end
-
     it 'has sign out link' do
       sign_in_as(user)
       visit root_path

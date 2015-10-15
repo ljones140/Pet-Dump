@@ -6,11 +6,13 @@ require 'rspec/rails'
 require 'factory_girl_rails'
 require 'capybara/rails'
 require 'support/database_cleaner'
+require 'support/user_helpers.rb'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryGirl::Syntax::Methods
+  config.include UserHelpers
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
 end
