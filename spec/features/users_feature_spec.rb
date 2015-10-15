@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 feature 'user can sign in and out ' do
-  
+  let(:user) { build(:user) }  
+
   context 'user not signed in on homepage' do
   
     it 'has sign in and sign up link' do
@@ -14,6 +15,14 @@ feature 'user can sign in and out ' do
       visit root_path
       expect(page).not_to have_link('Sign out')
     end
+
+    it 'allows sign up of user' do
+      visit root_path
+      sign_up_as(user)
+      expect(page).not_to have_link('Sign in')
+      expect(page).not_to have_link('Sign up')
+      expect(page).to have_link('Sign out')
+    end
   end
 
   context 'user signed in on the homepage' do
@@ -24,6 +33,7 @@ feature 'user can sign in and out ' do
       visit root_path
       expect(page).not_to have_link('Sign in')
       expect(page).not_to have_link('Sign up')
+      expect(page).to have_link('Sign out')
     end
   end
 end
