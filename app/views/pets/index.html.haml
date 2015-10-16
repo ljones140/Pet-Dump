@@ -1,1 +1,5 @@
-%p Join us to track your pets business
+-if user_signed_in?
+  %h2 no pets added yet
+  %a(href='#') add a pet
+-else
+  %p Join us to track your pets business
