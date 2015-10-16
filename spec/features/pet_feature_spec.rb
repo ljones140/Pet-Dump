@@ -22,15 +22,12 @@ feature 'pets' do
   end
 
   context 'pets have been added' do
-    
-    before do
-      pet = user.pets.new(name: 'Trigger', animal: 'Dog')
-      pet.save
-    end
+   
+    let(:user_with_pet){ create(:user_with_pet) } 
   
     scenario 'display pets' do
       visit root_path
-      sign_in_as(user)
+      sign_in_as(user_with_pet)
       visit pets_path
       expect(page).to have_content('Trigger')
       expect(page).not_to have_content('no pets added yet')
