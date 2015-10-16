@@ -44,6 +44,8 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'shoulda'
+  gem 'rspec-collection_matchers'
 end
 
 group :development do

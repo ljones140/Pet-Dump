@@ -20,4 +20,20 @@ feature 'pets' do
       expect(page).to have_link('add a pet')
     end
   end
+
+  context 'pets have been added' do
+    
+    before do
+      pet = user.pets.new(name: 'Trigger', animal: 'Dog')
+      pet.save
+    end
+  
+    scenario 'display pets' do
+      visit root_path
+      sign_in_as(user)
+      visit pets_path
+      expect(page).to have_content('Trigger')
+      expect(page).not_to have_content('no pets added yet')
+    end
+  end
  end
