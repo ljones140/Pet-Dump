@@ -29,7 +29,7 @@ feature 'pets' do
       visit root_path
       sign_in_as(user_with_pet)
       visit pets_path
-      expect(page).to have_content('Trigger')
+      expect(page).to have_content(user_with_pet.pets.first.name)
       expect(page).not_to have_content('no pets added yet')
     end
   end
