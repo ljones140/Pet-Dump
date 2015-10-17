@@ -1,1 +1,9 @@
-%p Join us to track your pets business
+- if user_signed_in?
+  - if @pets.any?
+    - @pets.each do |pet|
+      %h2= pet.name
+  - else
+    %h2 no pets added yet
+  %a(href=new_pet_path) add a pet
+- else
+  %p Join us to track your pets business
