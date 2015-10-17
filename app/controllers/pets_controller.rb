@@ -11,13 +11,17 @@ class PetsController < ApplicationController
   end
 
   def create
-		@pet = current_user.pets.new(pet_params)
-		@pet.save
-		redirect_to pets_path
+    @pet = current_user.pets.new(pet_params)
+    if @pet.save
+      redirect_to pets_path
+    else
+      flash[:notice] = "pet name required"
+      redirect_to new_pet_path
+    end
   end
 
-	def pet_params
-		params.require(:pet).permit(:name)
-	end
+  def pet_params
+    params.require(:pet).permit(:name)
+  end
 
 end

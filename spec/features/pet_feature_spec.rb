@@ -46,5 +46,14 @@ feature 'pets' do
       expect(page).to have_content('Harry')
       expect(current_path).to eq(pets_path)
     end
+
+    scenario 'user does not add name, error displayed' do
+      sign_in_as(user)
+      visit pets_path
+      click_link('add a pet')
+      click_button 'Create Pet'
+      expect(page).to have_content('pet name required')
+      expect(current_path).to eq(new_pet_path)
+    end
   end
 end
