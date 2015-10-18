@@ -46,6 +46,7 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'rspec-collection_matchers'
+  gem 'timecop'
 end
 
 group :development do
