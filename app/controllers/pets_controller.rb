@@ -20,6 +20,8 @@ class PetsController < ApplicationController
     end
   end
 
+  private
+
   def pet_params
     params.require(:pet).permit(:name)
   end
