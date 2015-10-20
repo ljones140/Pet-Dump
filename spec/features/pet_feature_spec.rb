@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'pets' do
 
   let(:user){ create(:user) }
-  let(:user_with_pet){ create(:user_with_pet) } 
+  let(:user_with_pet){ create(:user, :with_pet) } 
 
   context 'when user not signed in' do
     scenario 'displays sign up message' do

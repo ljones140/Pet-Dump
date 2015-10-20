@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'dump' do
 
-  let(:user){ create(:user_with_pet) } 
+  let(:user){ create(:user, :with_pet) } 
   let(:pet){ user.pets.first }
 
   time = Time.local(2015, 10, 18, 18, 0)
@@ -17,7 +17,7 @@ feature 'dump' do
     scenario 'can record time a pet dumps' do
       visit pets_path
       expect(page).to have_content(pet.name)
-      click_button('Record dump')
+      click_button('Record Dump')
       expect(page).to have_content('last dump at 18:00 18/10/2015')
     end
   end
