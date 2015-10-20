@@ -2,6 +2,9 @@
   - if @pets.any?
     - @pets.each do |pet|
       %h2= pet.name
+      - if pet.dumps.any?
+        %p last dump at #{ last_dump(pet) }
+      = render partial: "dumps/dump_entry", locals: { pet: pet }
   - else
     %h2 no pets added yet
   %a(href=new_pet_path) add a pet
