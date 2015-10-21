@@ -8,5 +8,10 @@ FactoryGirl.define do
       email 'user_with_pet@test.com'
       after(:create) { |instance| create(:pet, user: instance) }
     end
+
+    trait :with_dumped_pet do
+      email 'user_with_pet@test.com'
+      after(:create) { |instance| create(:pet, :with_dump, user: instance) }
+    end
   end
 end
