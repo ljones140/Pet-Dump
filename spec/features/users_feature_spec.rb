@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user can sign in and out ' do
 
-  let(:user) { build(:user) }  
+  let(:user) { build(:user) }
 
   context 'user not signed in on homepage' do
 
