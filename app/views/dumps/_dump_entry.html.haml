@@ -1,3 +1,4 @@
 = form_for [pet, @dump] do |f| 
   = f.label :time_went
+  = f.time_select :time_went, value: Time.now
   = f.submit "Record Dump", class: "button"
