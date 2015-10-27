@@ -24,7 +24,7 @@ feature 'dump' do
       expect(page).to have_content('last dump at 18:00 18/10/2015')
     end
 
-    scenario 'shows the newest dump by time_went' do
+    scenario 'shows the newest dump by time_went', do
       sign_in_as(user_dump)
       visit pets_path
       expect(page).to have_content('last dump at 17:00 18/10/2015')
@@ -32,11 +32,11 @@ feature 'dump' do
       expect(page).to have_content('last dump at 18:00 18/10/2015')
     end
 
-    scenario 'user can alter the dump time' do
-      sign_in_as(user)
+    scenario 'user can alter the dump time', js: true  do
+      sign_in_as(user_dump)
       visit pets_path
       expect(page).to have_content(pet.name)
-      select '12:00', from: 'Time Went'
+      page.execute_script("$('#dump_time_went_4i').val('12')")
       click_button('Record Dump')
       expect(page).to have_content('last dump at 12:00 18/10/2015')
     end
