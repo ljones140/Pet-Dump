@@ -42,7 +42,9 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'factory_girl_rails'
+  gem 'orderly'
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'rspec-collection_matchers'

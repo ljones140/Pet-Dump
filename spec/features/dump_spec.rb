@@ -7,7 +7,7 @@ feature 'dump' do
   let(:user_dump) {create(:user, :with_dumped_pet) }
   let(:dumped_pet){ user_dump.pets.first }
 
-  time = Time.local(2015, 10, 18, 18, 0)
+  time = Time.local(2015, 10, 18, 18, 00)
 
   context 'when user signed in with pet' do
 
@@ -19,7 +19,7 @@ feature 'dump' do
       sign_in_as(user)
       visit pets_path
       expect(page).to have_content(pet.name)
-      expect(page).not_to have_content('last dump at 18:00 18/10/2015')
+      expect(page).not_to have_content('last dump at 19:00 18/10/2015')
       click_button('Record Dump')
       expect(page).to have_content('last dump at 18:00 18/10/2015')
     end
@@ -30,6 +30,15 @@ feature 'dump' do
       expect(page).to have_content('last dump at 17:00 18/10/2015')
       click_button('Record Dump')
       expect(page).to have_content('last dump at 18:00 18/10/2015')
+    end
+
+    scenario 'user can alter the dump time', js: true  do
+      sign_in_as(user_dump)
+      visit pets_path
+      expect(page).to have_content(pet.name)
+      page.execute_script("$('#dump_time_went_4i').val('21')")
+      click_button('Record Dump')
+      expect(page).to have_content('last dump at 21:00 18/10/2015')
     end
 
   end
