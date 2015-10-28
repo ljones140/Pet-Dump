@@ -6,11 +6,5 @@ class DumpsController < ApplicationController
     redirect_to pets_path
   end
 
-  private
-
-  def dump_params
-    params.permit(:dump)
-  end
-
 end
 
