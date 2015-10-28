@@ -27,7 +27,7 @@ feature 'dump' do
     scenario 'shows the newest dump by time_went' do
       sign_in_as(user_dump)
       visit pets_path
-      expect(page).to have_content('last dump at 19:00 18/10/2015')
+      expect(page).to have_content('last dump at 17:00 18/10/2015')
       click_button('Record Dump')
       expect(page).to have_content('last dump at 18:00 18/10/2015')
     end
