@@ -21,7 +21,7 @@ feature 'dump' do
       expect(page).to have_content(pet.name)
       expect(page).not_to have_content('last dump')
       click_button('Record Dump')
-      expect(page).to have_content('last dump at 17:00 18/10/2015')
+      expect(page).to have_content('18/10/2015')
     end
 
     scenario 'shows the newest dump by time_went' do
@@ -29,7 +29,7 @@ feature 'dump' do
       visit pets_path
       expect(page).to have_content('last dump at 16:00 18/10/2015')
       click_button('Record Dump')
-      expect(page).to have_content('last dump at 17:00 18/10/2015')
+      expect(page).not_to have_content('last dump at 16:00 18/10/2015')
     end
 
     scenario 'user can alter the dump time', js: true  do
