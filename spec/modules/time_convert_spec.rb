@@ -2,17 +2,19 @@ require 'rails_helper'
 
 RSpec.describe TimeConvert do
 
-  time_select  = { "time_went(1i)"=>"2015", 
-                   "time_went(2i)"=>"10", 
-                   "time_went(3i)"=>"28", 
-                   "time_went(4i)"=>"13", 
-                   "time_went(5i)"=>"11" }
+  time_select  = { "date_time_element(1i)"=>"2015", 
+                   "date_time_element(2i)"=>"10", 
+                   "date_time_element(3i)"=>"28", 
+                   "date_time_element(4i)"=>"13", 
+                   "date_time_element(5i)"=>"11" }
 
-  it 'converts time_select hash to time' do
-    expect(subject.convert_to_time(time_select)).to eq("2015-10-28 13:11:00.000000000 +0000");
+  let(:time){ subject.convert_to_time(time_select) }
+
+  it 'converts time_select params to correct time' do
+    expect(time.strftime("%H:%M %d/%m/%Y")).to eq("13:11 28/10/2015");
   end
 
-  it 'returns instance of Time' do
+  it 'returns an instance of Time' do
     expect(subject.convert_to_time(time_select)).to be_a(Time)
   end
 

@@ -32,6 +32,6 @@ module PetDump
     config.generators do |g|
         g.factory_girl false
     end
-    config.time_zone = 'London'
+    # config.time_zone = 'London'
   end
 end
