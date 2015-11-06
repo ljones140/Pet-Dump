@@ -4,7 +4,7 @@ feature 'dump' do
 
   let(:user){ create(:user, :with_pet) } 
   let(:pet){ user.pets.first }
-  let(:user_dump) {create(:user, :with_dumped_pet) }
+  let(:user_dump){ create(:user, :with_dumped_pet) }
   let(:dumped_pet){ user_dump.pets.first }
 
   time = Time.utc(2015, 10, 18, 17, 00)
