@@ -21,6 +21,10 @@ so that I can teach Pet Dump my pets toilet habits
 I would like to record my pets toilet times
 
 As a busy pet owner
+so I can know how often my pet needs to go
+I need to knoe the average times a day my pet goes
+
+As a busy pet owner
 so that I can know if my pet needs to go
 I would like to see the probability of my pet needing to go to the toilet.
 
