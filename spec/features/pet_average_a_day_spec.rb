@@ -11,7 +11,9 @@ feature 'average dumps a day' do
       sign_in_as(user)
       visit pets_path
       expect(page).to have_content(pet.name)
+      expect(page).to have_content('average dumps a day: 1')
     end
+
   end
 
 end
