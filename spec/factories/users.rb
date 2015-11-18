@@ -12,5 +12,9 @@ FactoryGirl.define do
     trait :with_dumped_pet do
       after(:create) { |instance| create(:pet, :with_dump, user: instance) }
     end
+
+    trait :with_one_daily_dump_pet do
+      after(:create) { |instance| create(:pet, :with_one_daily_dump, user: instance) }
+    end
   end
 end
