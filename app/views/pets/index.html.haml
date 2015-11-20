@@ -5,6 +5,7 @@
       %p need to go: unknown
       - if pet.dumps.any?
         %p last dump at #{ last_dump(pet) }
+        %p average dumps a day: #{ pet.average_dumps_per_day }
       = render partial: "dumps/dump_entry", locals: { pet: pet }
   - else
     %h2 no pets added yet
