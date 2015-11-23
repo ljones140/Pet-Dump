@@ -10,9 +10,10 @@ FactoryGirl.define do
       after(:create) { |instance| create_list(:dump, 10, :once_daily, pet: instance) }
     end
 
-    trait :with_two_daily_dumps do
-      after(:create) { |instance| create_list(:dump, 10, :two_daily, pet: instance) }
-      after(:create) { |instance| create_list(:dump, 10, :two_daily, pet: instance) }
+    trait :with_two_daily_dump do
+      after(:create) { |instance| create_list(:dump, 20, :two_daily, pet: instance) }
     end
+
   end
+
 end

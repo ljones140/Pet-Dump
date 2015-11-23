@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'average dumps a day' do
 
   let(:user_one_daily){ create(:user, :with_one_daily_dump_pet) }
+  let(:user_two_daily){ create(:user, :with_two_daily_dump_pet) }
 
   context 'when pet has daily dumps' do
 
@@ -10,6 +11,12 @@ feature 'average dumps a day' do
       sign_in_as(user_one_daily)
       visit pets_path
       expect(page).to have_content('average dumps a day: 1')
+    end
+
+    scenario 'shows average 2 dumps a day' do
+      sign_in_as(user_two_daily)
+      visit pets_path
+      expect(page).to have_content('average dumps a day: 2')
     end
 
   end

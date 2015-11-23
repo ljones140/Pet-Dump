@@ -7,7 +7,9 @@ FactoryGirl.define do
     end
 
     trait :two_daily do
-      sequence(:time_went){ |n| n.days.ago }
+      sequence(:time_went){ |n| (n * 12).hours.ago }
     end
+
   end
+
 end
