@@ -1,5 +1,4 @@
 class Pet < ActiveRecord::Base
-
   belongs_to :user
   has_many :dumps
   validates_presence_of :name
@@ -14,5 +13,4 @@ class Pet < ActiveRecord::Base
   def daily_dumps
     dumps.group("DATE_TRUNC('day', time_went)").count
   end
-
 end

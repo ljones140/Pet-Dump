@@ -1,7 +1,6 @@
 rvm: '2.2.1'
 
 before_install:
-  - export TZ=London
 
 script:
   - bundle exec bin/rake db:create
